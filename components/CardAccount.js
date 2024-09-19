@@ -1,8 +1,7 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native'
+import {View, Text, StyleSheet, Pressable} from 'react-native'
 import { Image } from 'expo-image'
 
-
-export default function CardAccount({ id, service, userName, imgUrl, accounts, setAccounts }) {
+export default function CardAccount ({ id, service, userName, imgUrl, accounts, setAccounts }) {
 
 
     const handleDelete = async () => {
@@ -12,7 +11,7 @@ export default function CardAccount({ id, service, userName, imgUrl, accounts, s
                 'Content-Type': 'application/json'
             }
         })
-        if (response.ok) {
+        if(response.ok){
             const data = await response.json()
             console.log(data)
             const newAccounts = accounts.filter((item) => item.id !== id)
@@ -25,8 +24,8 @@ export default function CardAccount({ id, service, userName, imgUrl, accounts, s
 
     return (
         <View style={styles.card}>
-            <Image
-                style={styles.logo}
+            <Image 
+                style={styles.logo} 
                 source={imgUrl}
             />
             <View style={styles.content}>
@@ -37,6 +36,7 @@ export default function CardAccount({ id, service, userName, imgUrl, accounts, s
         </View>
     )
 }
+
 const styles = StyleSheet.create({
     card: {
         padding: 10,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center'
     },
-    logo: {
+    logo:{
         width: 60,
         height: 60
     },

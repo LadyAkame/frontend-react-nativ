@@ -1,4 +1,4 @@
-import { useEffect, useState, } from 'react'
+import { useEffect, useState } from 'react'
 import {View, StyleSheet, Text, TextInput, Pressable} from 'react-native'
 import CardAccount from './CardAccount'
 //import CardAccount2 from './CardAccount2'
@@ -11,7 +11,7 @@ export default function Content(){
   const [txtUsername, setTxtUsername] = useState('')
   const [txtPass, setTxtPass] = useState('')
   const [txtImgUrl, setTxtImgUrl] = useState('')
-
+ 
    useEffect(() => {
         const getAccounts = async () => {
             const response = await fetch('http://localhost:3000/account/list')
@@ -56,7 +56,7 @@ export default function Content(){
 
     return (
         <View style={styles.content}>
-
+        
         {/* <Calc /> */}
 
         <View>
@@ -93,8 +93,6 @@ export default function Content(){
           >
             <Text>Cadatrar</Text>
           </Pressable>
-
-
         </View>        
 
         { accounts.length === 0 && <Text>Loading...</Text>}
@@ -102,8 +100,8 @@ export default function Content(){
         {
           accounts.map( (account) => 
             <CardAccount
-              key={account.id} 
-              id={account.id}
+              key={account.id}
+              id={account.id} 
               service={account.service}
               imgUrl={account.logo_image}
               userName={account.username}
@@ -133,11 +131,11 @@ const styles = StyleSheet.create({
       marginVertical: 5,
       borderRadius: 5
     },
-    button: {
-      backgroundColor: 'greem',
+    button: ({pressed}) => [{
+      backgroundColor: pressed ? '#ed7900': '#f97f01',
       alignItems: 'center',
       marginVertical: 10,
       borderRadius: 10,
       paddingVertical: 5
-    }
+    }]
 })

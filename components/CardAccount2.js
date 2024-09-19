@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet,} from 'react-native'
 import { Image } from 'expo-image'
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 
